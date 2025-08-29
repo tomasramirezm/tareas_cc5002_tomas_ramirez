@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Agregar Aviso de Adopción</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="../css/styles_agregar_aviso.css">
+    </head>
+    <body>
+        <div class="main-container">
+            <div id="val-box" hidden>
+                <h2 id ="val-msg"></h2>
+                <ul id="val-list"></ul>
+            </div>
+            <form name="agregar-aviso" method="post" enctype="multipart/form-data">
+                <label for="select-region">Región</label>
+                <select id="select-region" name="select-region" required>
+                    <option value="" disabled selected>Seleccione una región</option>
+                    <option value="Arica y Parinacota">Región de Arica y Parinacota</option>
+                    <option value="Tarapacá">Región de Tarapacá</option>
+                    <option value="Antofagasta">Región de Antofagasta</option>
+                    <option value="Atacama">Región de Atacama</option>
+                    <option value="Coquimbo">Región de Coquimbo</option>
+                    <option value="Valparaíso">Región de Valparaíso</option>
+                    <option value="Metropolitana">Región Metropolitana</option>
+                    <option value="O'Higgins">Región de O'Higgins</option>
+                    <option value="Maule">Región del Maule</option>
+                    <option value="Ñuble">Región de Ñuble</option>
+                    <option value="Biobío">Región del Biobío</option>
+                    <option value="Araucanía">Región de La Araucanía</option>
+                    <option value="Los Ríos">Región de Los Ríos</option>
+                    <option value="Los Lagos">Región de Los Lagos</option>
+                    <option value="Aysén">Región de Aysén</option>
+                    <option value="Magallanes">Región de Magallanes</option>
+                </select><br>
+                
+                <label for="select-comuna">Comuna</label>
+                <select id="select-comuna" name="select-comuna" required>
+                    <option value="" disabled selected>Seleccione una comuna</option>
+                </select><br>
+
+                <label for="sector">Sector:</label>
+                <input type="text" id="sector" name="sector" maxlength="100"><br>
+
+                <label for="nombre">Nombre de contacto:</label>
+                <input type="text" id="nombre" name="nombre" minlength="3" maxlength="200" required><br>
+                
+                <label for="email">Correo electrónico:</label>
+                <input type="email" id="email" name="email" maxlength="100" required><br>
+
+                <label for="telefono">Número de teléfono:</label>
+                <input type="tel" id="telefono" name="telefono"><br>
+
+                <label for="medio-contacto">Medio(s) de contacto:</label>
+                <div id="medio-contacto">
+                    <label><input id="cb-whatsapp" type="checkbox" value="WhatsApp">WhatsApp</label>
+                    <div id="whatsapp-nombre" class="medio-input" style="display:none;">
+                        <input type="text" id="whatsapp" name="whatsapp" minlength="4" maxlength="50">
+                    </div>
+
+                    <label><input id="cb-telegram" type="checkbox" value="Telegram">Telegram</label>
+                    <div id="telegram-nombre" class="medio-input" style="display:none;">
+                        <input type="text" id="telegram" name="telegram" minlength="4" maxlength="50">
+                    </div>
+
+                    <label><input id="cb-x" type="checkbox" value="X">X</label>
+                    <div id="x-nombre" class="medio-input" style="display:none;">
+                        <input type="text" id="x" name="x" minlength="4" maxlength="50">
+                    </div>
+
+                    <label><input id="cb-instagram" type="checkbox" value="Instagram">Instagram</label>
+                    <div id="instagram-nombre" class="medio-input" style="display:none;">
+                        <input type="text" id="instagram" name="instagram" minlength="4" maxlength="50">
+                    </div>
+
+                    <label><input id="cb-tiktok" type="checkbox" value="TikTok">TikTok</label>
+                    <div id="tiktok-nombre" class="medio-input" style="display:none;">
+                        <input type="text" id="tiktok" name="tiktok" minlength="4" maxlength="100">
+                    </div>
+
+                    <label><input id="cb-otro" type="checkbox" value="Otro">Otro</label>
+                    <div id="otro-nombre" class="medio-input" style="display:none;">
+                        <input type="text" id="otro" name="otro" minlength="4" maxlength="100">
+                    </div>
+                </div>
+                
+                <label for="select-tipo-mascota">Tipo de mascota:</label>
+                <select id="select-tipo-mascota" name="select-tipo-mascota" required>
+                    <option value="" disabled selected>Seleccione un tipo</option>
+                    <option value="Perro">Perro</option>
+                    <option value="Gato">Gato</option>
+                </select><br>
+                
+                <label for="cantidad">Cantidad:</select>
+                <input type="number" id="cantidad" name="cantidad" min="1" required><br>
+                
+                <label for="edad">Edad:</label>
+                <input type="number" id="edad" name="edad" min="1" required><br>
+                
+                <label for="select-unidad-edad">Unidad de edad:</label>
+                <select id="select-unidad-edad" name="select-unidad-edad" required>
+                    <option value="" disabled selected>Seleccione una unidad</option>
+                    <option value="Meses">Meses</option>
+                    <option value="Años">Años</option>
+                </select><br>
+
+                <label for="fecha-entrega">Fecha disponible para entrega:</label>
+                <input type="datetime-local" id="fecha-entrega" name="fecha-entrega" required><br>
+                
+                <label for="descripcion">Descripción:</label>
+                <textarea id="descripcion" name="descripcion" cols="50" rows="10"></textarea><br>
+                
+                <label for="foto">Fotos de la mascota (máximo 5):</label>
+                <div id="foto-container">
+                    <input type="file" id="foto" name="foto" multiple accept="image/*,.pdf" required>
+                </div>
+                <button type="submit" id="btn-agregar-foto">Agregar otra foto</button>
+                <p id="mensaje-error" style="color:red; display: none;">No puedes agregar más de 5 fotos!</p>
+
+                <button type="button" id="btn-enviar">Enviar Aviso de Adopción</button>
+            </form>
+        </div>
+        <script src="../js/comunas.js"></script>
+        <script src="../js/contacto.js"></script>
+        <script src="../js/medios.js"></script>
+        <script src="../js/agregarFotos.js"></script>
+        <script src="../js/validaciones.js"></script>
+    </body>
+</html>
