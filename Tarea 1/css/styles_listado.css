@@ -199,7 +199,23 @@ td img {
     margin: auto;
 }
 
-/* Esto de acá abajo lo hizo chatGPT porque no estaba seguro cómo hacerlo responsivo a pantallas pequeñas */
+/* Contenedor botón volver */
+.back-container {
+  margin-top: 20px;
+  text-align: center;
+}
+.back-link {
+  background-color: #4CAF50;
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  display: inline-block;
+  transition: background-color .2s ease;
+}
+.back-link:hover { background-color: #45a049; }
+
+/* LO QUE ESTÁ ACÁ ABAJO LO HIZO CHATGPT, NO ESTABA SEGURO CÓMO HACER QUE SE VIERA MEJOR EN PANTALLAS PEQUEÑAS */
 
 /* Mejoras para pantallas pequeñas (responsividad) */
 @media (max-width: 768px) {
@@ -252,3 +268,5 @@ td img {
         padding-top: 12px; /* mantiene coherencia del espacio superior */
     }
 }
+
+
