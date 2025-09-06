@@ -40,47 +40,47 @@
                 </select><br>
 
                 <label for="sector">Sector:</label>
-                <input type="text" id="sector" name="sector" maxlength="100"><br>
+                <input type="text" id="sector" name="sector" maxlength="100" placeholder="Elija un sector"><br>
 
                 <label for="nombre">Nombre de contacto:</label>
-                <input type="text" id="nombre" name="nombre" minlength="3" maxlength="200" required><br>
+                <input type="text" id="nombre" name="nombre" minlength="3" maxlength="200" placeholder="Escriba su nombre" required><br>
                 
                 <label for="email">Correo electrónico:</label>
-                <input type="email" id="email" name="email" maxlength="100" required><br>
+                <input type="email" id="email" name="email" maxlength="100" placeholder="Escriba su correo electrónico" required><br>
 
                 <label for="telefono">Número de teléfono:</label>
-                <input type="tel" id="telefono" name="telefono"><br>
+                <input type="tel" id="telefono" name="telefono" placeholder="Escriba su número de teléfono"><br>
 
                 <label for="medio-contacto">Medio(s) de contacto:</label>
                 <div id="medio-contacto">
                     <label><input id="cb-whatsapp" type="checkbox" value="WhatsApp">WhatsApp</label>
                     <div id="whatsapp-nombre" class="medio-input" style="display:none;">
-                        <input type="text" id="whatsapp" name="whatsapp" minlength="4" maxlength="50">
+                        <input type="text" id="whatsapp" name="whatsapp" minlength="4" maxlength="50" placeholder="Escriba su número de Whatsapp">
                     </div>
 
                     <label><input id="cb-telegram" type="checkbox" value="Telegram">Telegram</label>
                     <div id="telegram-nombre" class="medio-input" style="display:none;">
-                        <input type="text" id="telegram" name="telegram" minlength="4" maxlength="50">
+                        <input type="text" id="telegram" name="telegram" minlength="4" maxlength="50" placeholder="Escriba su nombre de usuario de Telegram">
                     </div>
 
                     <label><input id="cb-x" type="checkbox" value="X">X</label>
                     <div id="x-nombre" class="medio-input" style="display:none;">
-                        <input type="text" id="x" name="x" minlength="4" maxlength="50">
+                        <input type="text" id="x" name="x" minlength="4" maxlength="50" placeholder="Escriba su nombre de usuario de X">
                     </div>
 
                     <label><input id="cb-instagram" type="checkbox" value="Instagram">Instagram</label>
                     <div id="instagram-nombre" class="medio-input" style="display:none;">
-                        <input type="text" id="instagram" name="instagram" minlength="4" maxlength="50">
+                        <input type="text" id="instagram" name="instagram" minlength="4" maxlength="50" placeholder="Escriba su nombre de usuario de Instagram">
                     </div>
 
                     <label><input id="cb-tiktok" type="checkbox" value="TikTok">TikTok</label>
                     <div id="tiktok-nombre" class="medio-input" style="display:none;">
-                        <input type="text" id="tiktok" name="tiktok" minlength="4" maxlength="100">
+                        <input type="text" id="tiktok" name="tiktok" minlength="4" maxlength="100" placeholder="Escriba su nombre de usuario de TikTok">
                     </div>
 
                     <label><input id="cb-otro" type="checkbox" value="Otro">Otro</label>
                     <div id="otro-nombre" class="medio-input" style="display:none;">
-                        <input type="text" id="otro" name="otro" minlength="4" maxlength="100">
+                        <input type="text" id="otro" name="otro" minlength="4" maxlength="100" placeholder="Escriba el otro medio de contacto">
                     </div>
                 </div>
                 
@@ -92,10 +92,10 @@
                 </select><br>
                 
                 <label for="cantidad">Cantidad:</label>
-                <input type="number" id="cantidad" name="cantidad" min="1" required><br>
+                <input type="number" id="cantidad" name="cantidad" min="1" placeholder="Introduzca la cantidad de mascotas a dar en adopción" required><br>
                 
                 <label for="edad">Edad:</label>
-                <input type="number" id="edad" name="edad" min="1" required><br>
+                <input type="number" id="edad" name="edad" min="1" placeholder="Introduzca la edad de su(s) mascota(s)" required><br>
                 
                 <label for="select-unidad-edad">Unidad de edad:</label>
                 <select id="select-unidad-edad" name="select-unidad-edad" required>
@@ -108,7 +108,7 @@
                 <input type="datetime-local" id="fecha-entrega" name="fecha-entrega" required><br>
                 
                 <label for="descripcion">Descripción:</label>
-                <textarea id="descripcion" name="descripcion" cols="50" rows="10"></textarea><br>
+                <textarea id="descripcion" name="descripcion" cols="50" rows="10" placeholder="Escriba una breve descripción de su(s) mascota(s)"></textarea><br>
                 
                 <label for="foto">Fotos de la mascota (máximo 5):</label>
                 <div id="foto-container">

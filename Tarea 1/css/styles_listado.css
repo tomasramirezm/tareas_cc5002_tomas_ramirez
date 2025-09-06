@@ -41,16 +41,6 @@ tr:hover {
     cursor: pointer;
 }
 
-/* Estilo para las celdas dentro de la fila al pasar el mouse por encima */
-tr:hover td {
-    background-color: #f5f5f5;
-}
-
-/* Estilo por defecto para las celdas */
-td {
-    transition: background-color 0.3s;
-}
-
 /* Estilos para la tabla */
 table {
     width: 100%;
@@ -67,12 +57,13 @@ th {
     font-size: 16px;
 }
 
-/* Filas de la tabla */
+/* Filas de la tabla (unificado, eliminando duplicados) */
 td {
     padding: 12px 15px;
     text-align: center;
     background-color: #ffffff;
     border-bottom: 1px solid #ddd;
+    transition: background-color 0.3s;
 }
 
 /* Estilos para las imágenes dentro de la tabla */
@@ -88,8 +79,7 @@ td img {
     display: none;
     position: fixed;
     z-index: 1000;
-    left: 0;
-    top: 0;
+    inset: 0; /* equivale a top/left/right/bottom: 0 */
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.7);
@@ -110,7 +100,7 @@ td img {
 /* Contenido del modal */
 .modal-content {
     background-color: white;
-    padding: 20px;
+    padding: 16px 20px 20px;
     border-radius: 10px;
     width: 90%;
     height: 80%;
@@ -118,17 +108,16 @@ td img {
     position: relative;
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
     max-height: 80vh;
     overflow-y: auto; 
 }
 
-/* Título del modal */
+/* Título del modal: sin márgenes que empujen hacia abajo */
 .modal-content h2 {
-    text-align: center;
     font-size: 24px;
-    margin-bottom: 0px;
     color: #4CAF50;
-    margin-top: 400px;
+    margin: 0 0 12px;
 }
 
 /* Estilo para los detalles dentro del modal */
@@ -181,17 +170,16 @@ td img {
     display: none;
     position: fixed;
     z-index: 1000;
-    left: 0;
-    top: 0;
+    inset: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro */
+    background-color: rgba(0, 0, 0, 0.7);
     justify-content: center;
     align-items: center;
     text-align: center;
 }
 
-/* Estilo para el contenido del modal */
+/* Estilo para el contenido del modal de imagen */
 #modal-content {
     background-color: white;
     padding: 20px;
@@ -211,7 +199,7 @@ td img {
     margin: auto;
 }
 
-/* LO QUE ESTÁ ACÁ ABAJO LO HIZO CHATGPT, NO ESTABA SEGURO CÓMO HACER QUE SE VIERA MEJOR EN PANTALLAS PEQUEÑAS */
+/* Esto de acá abajo lo hizo chatGPT porque no estaba seguro cómo hacerlo responsivo a pantallas pequeñas */
 
 /* Mejoras para pantallas pequeñas (responsividad) */
 @media (max-width: 768px) {
@@ -229,6 +217,13 @@ td img {
     /* Reducimos el tamaño de las imágenes en pantallas más pequeñas */
     td img {
         max-width: 150px;
+        width: 100%;
+        height: auto;
+    }
+
+    .modal-content {
+        width: 95%;
+        padding-top: 14px; /* mantiene coherencia del espacio superior */
     }
 }
 
@@ -236,6 +231,8 @@ td img {
     /* Reducimos aún más el tamaño de las imágenes */
     td img {
         max-width: 120px;
+        width: 100%;
+        height: auto;
     }
 
     /* Aseguramos que los botones sean más grandes en pantallas pequeñas */
@@ -248,5 +245,10 @@ td img {
     /* Ajustamos la tabla para que sea completamente legible */
     table {
         font-size: 12px;
+    }
+
+    .modal-content {
+        width: 96%;
+        padding-top: 12px; /* mantiene coherencia del espacio superior */
     }
 }

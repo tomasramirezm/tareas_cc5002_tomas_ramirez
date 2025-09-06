@@ -3,9 +3,9 @@ document.getElementById("btn-agregar").addEventListener("click", function() {
 });
 
 document.getElementById("btn-ver").addEventListener("click", function() {
-    window.location.href = "pagina-listado.html";
+    window.location.href = "listado.html";
 });
 
 document.getElementById("btn-estadisticas").addEventListener("click", function() {
-    window.location.href = "pagina-estadisticas.html"; 
+    window.location.href = "estadisticas.html"; 
 });
