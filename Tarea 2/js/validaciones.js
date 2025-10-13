@@ -92,12 +92,12 @@ const validateForm = () => {
     const archivos = form.elements["foto"].files;
 
     // Obtenemos los valores de los medios de contacto solo si están marcados
-    const medioWhatsapp = form.elements["cb-whatsapp"].checked ? document.getElementById("whatsapp-nombre").value : "";
-    const medioTelegram = form.elements["cb-telegram"].checked ? document.getElementById("telegram-nombre").value : "";
-    const medioX = form.elements["cb-x"].checked ? document.getElementById("x-nombre").value : "";
-    const medioInstagram = form.elements["cb-instagram"].checked ? document.getElementById("instagram-nombre").value : "";
-    const medioTikTok = form.elements["cb-tiktok"].checked ? document.getElementById("tiktok-nombre").value : "";
-    const medioOtro = form.elements["cb-otro"].checked ? document.getElementById("otro-nombre").value : "";
+    const medioWhatsapp = form.elements["cb-whatsapp"].checked ? document.getElementById("whatsapp").value : "";
+    const medioTelegram = form.elements["cb-telegram"].checked ? document.getElementById("telegram").value : "";
+    const medioX = form.elements["cb-x"].checked ? document.getElementById("x").value : "";
+    const medioInstagram = form.elements["cb-instagram"].checked ? document.getElementById("instagram").value : "";
+    const medioTikTok = form.elements["cb-tiktok"].checked ? document.getElementById("tiktok").value : "";
+    const medioOtro = form.elements["cb-otro"].checked ? document.getElementById("otro").value : "";
 
     // Variables auxiliares de validación y función
     let invalidInputs = [];
