@@ -17,10 +17,10 @@ const validateEmail = (email) => {
 }
 
 const validatePhoneNumber = (phoneNumber) => {
-  if (!phoneNumber) return false;
+  if (!phoneNumber || phoneNumber.trim() === "") return true;
   
   // Validación del formato utilizando una expresión regular
-  let re = /^\+(\d{3})(\d{8})$/;
+  let re = /^\+\d{3}\.\d{8}$/;
 
   return re.test(phoneNumber);
 };
