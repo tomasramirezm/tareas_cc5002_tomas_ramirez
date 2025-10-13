@@ -47,7 +47,7 @@ const validateFechaEntrega = (fecha) => {
 }
 
 const validateFiles = (files) => {
-  if (!files) return false;
+  if (!files || files.length === 0) return false;
 
   // validación del número de archivos
   let lengthValid = files.length <= 5;
@@ -89,7 +89,8 @@ const validateForm = () => {
     const fechaEntrega = form.elements["fecha-entrega"].value;
     const region = form.elements["select-region"].value;
     const comuna = form.elements["select-comuna"].value;
-    const archivos = form.elements["foto"].files;
+    const fileInputs = form.querySelectorAll('input[name="foto"]');
+    const archivos = Array.from(fileInputs).flatMap(inp => Array.from(inp.files));
 
     // Obtenemos los valores de los medios de contacto solo si están marcados
     const medioWhatsapp = form.elements["cb-whatsapp"].checked ? document.getElementById("whatsapp").value : "";
@@ -166,8 +167,7 @@ const validateForm = () => {
         submitButton.innerText = "Si, estoy seguro";
         submitButton.style.marginRight = "10px";
         submitButton.addEventListener("click", () => {
-            // myForm.submit();
-            // no tenemos un backend al cual enviarle los datos
+            form.submit();
             formContainer.innerHTML = "<h2>Hemos recibido la información de adopción, muchas gracias y suerte!</h2>";
             let volverButton = document.createElement("button");
             volverButton.innerText = "Volver al inicio";
