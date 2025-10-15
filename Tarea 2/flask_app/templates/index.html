@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Adopción de Perros y Gatos</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/styles_index.css') }}">
+    </head>
+    <body>
+        <div id="bienvenida">
+            <h1>¡Bienvenid@ al portal de Adopción de Mascotas de CC5002!</h1>
+        </div>
+        <div>
+            <button type="button" id="btn-agregar">Agregar Aviso de Adopción</button>
+            <button type="button" id="btn-ver">Ver Listado de Adopciones</button>
+            <button type="button" id="btn-estadisticas">Estadísticas</button>
+        </div>
+        <table id="tabla-adopciones">
+            <thead>
+                <tr>
+                    <th>Fecha de Publicación</th>
+                    <th>Comuna</th>
+                    <th>Sector</th>
+                    <th>Cantidad, Tipo y Edad</th>
+                    <th>Foto</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Aquí se llenará dinámicamente con JavaScript -->
+            </tbody>
+        </table>
+        <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+    </body>
+</html>
