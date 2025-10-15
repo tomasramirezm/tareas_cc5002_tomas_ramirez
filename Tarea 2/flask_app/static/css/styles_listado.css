@@ -16,7 +16,7 @@ body {
 }
 
 /* Contenedor principal para los botones */
-div {
+.pager, .top-buttons {
     display: flex;
     justify-content: center;
     gap: 20px;
@@ -103,7 +103,6 @@ td img {
     padding: 16px 20px 20px;
     border-radius: 10px;
     width: 90%;
-    height: 80%;
     text-align: center;
     position: relative;
     display: flex;
@@ -143,11 +142,8 @@ td img {
 }
 
 /* Estilo para las imágenes dentro del modal */
-#modal-content img {
-    width: 320px;
-    height: 240px;
-    margin-top: 10px;
-    border-radius: 5px;
+#detalle-body img {
+    margin-top: 10px; /* importante: sin width/height aquí para no chocar con #modal-img */
 }
 
 /* Estilo para el botón de cerrar */
@@ -179,17 +175,6 @@ td img {
     text-align: center;
 }
 
-/* Estilo para el contenido del modal de imagen */
-#modal-content {
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    width: 80%;
-    max-width: 800px;
-    text-align: center;
-    position: relative;
-}
-
 #modal-img {
     width: 100%;
     height: auto;
@@ -197,6 +182,63 @@ td img {
     max-height: 600px;
     display: block;
     margin: auto;
+}
+
+/* Estructura del detalle: info arriba, fotos debajo */
+#detalle-body {
+  display: block;
+  margin-bottom: 8px;
+}
+
+/* NUEVO: Info del detalle en columnas arriba (fluido y responsive) */
+#detalle-body .detalle-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+  text-align: left;
+  align-items: start;
+}
+
+/* NUEVO: Fila de fotos dentro del modal (debajo de la info) */
+#detalle-body .fotos-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  margin-top: 8px;
+}
+
+.foto-detalle {
+  width: 320px;     /* fijo 320×240 como pediste */
+  height: 240px;
+  object-fit: cover;
+  border-radius: 5px;
+  display: block;
+  cursor: pointer;  /* manito */
+}
+
+/*Contenedor del modal de imagen (contenido centrado y con gap) */
+#modal-content {
+    background-color: white;
+    padding: 16px 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 800px;
+    text-align: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* Cursor para imagenes clickeables */
+#modal-img {
+    cursor: pointer;
+}
+
+/* Mostrar el modal cuando tenga la clase "open" */
+#modal.open{
+    display: flex;
 }
 
 /* Contenedor botón volver */
@@ -213,6 +255,7 @@ td img {
   display: inline-block;
   transition: background-color .2s ease;
 }
+
 .back-link:hover { background-color: #45a049; }
 
 /* LO QUE ESTÁ ACÁ ABAJO LO HIZO CHATGPT, NO ESTABA SEGURO CÓMO HACER QUE SE VIERA MEJOR EN PANTALLAS PEQUEÑAS */
@@ -220,7 +263,7 @@ td img {
 /* Mejoras para pantallas pequeñas (responsividad) */
 @media (max-width: 768px) {
     /* Aseguramos que los botones se apilen en lugar de estar en línea */
-    div {
+    .pager, .top-buttons {
         flex-direction: column;
         align-items: center;
     }
@@ -268,5 +311,3 @@ td img {
         padding-top: 12px; /* mantiene coherencia del espacio superior */
     }
 }
-
-

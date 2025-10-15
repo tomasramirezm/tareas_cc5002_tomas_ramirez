@@ -56,9 +56,9 @@ const validateFiles = (files) => {
   let typeValid = true;
 
   for (const file of files) {
-    // el tipo de archivo debe ser "image/<foo>" o "application/pdf"
+    // el tipo de archivo debe ser "image/<foo>"
     let fileFamily = file.type.split("/")[0];
-    typeValid &&= fileFamily == "image" || file.type == "application/pdf";
+    typeValid &&= fileFamily == "image";
   }
 
   // devolvemos la lógica AND de las validaciones.

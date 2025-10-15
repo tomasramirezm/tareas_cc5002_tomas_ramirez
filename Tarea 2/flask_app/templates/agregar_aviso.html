@@ -4,7 +4,7 @@
         <title>Agregar Aviso de Adopción</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="../css/styles_agregar_aviso.css">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles_agregar_aviso.css') }}">
     </head>
     <body>
         <div class="main-container">
@@ -12,7 +12,7 @@
                 <h2 id ="val-msg"></h2>
                 <ul id="val-list"></ul>
             </div>
-            <form name="agregar-aviso" method="post" action="http://127.0.0.1:5000/avisos" enctype="multipart/form-data">
+            <form name="agregar-aviso" method="post" action="{{ url_for('crear_aviso') }}" enctype="multipart/form-data">
                 <label for="select-region">Región</label>
                 <select id="select-region" name="select-region" required>
                     <option value="" disabled selected>Seleccione una región</option>
@@ -51,38 +51,40 @@
                 <label for="telefono">Número de teléfono:</label>
                 <input type="tel" id="telefono" name="telefono" placeholder="Escriba su número de teléfono en formato +NNN.NNNNNNNN"><br>
 
-                <label for="medio-contacto">Medio(s) de contacto:</label>
-                <div id="medio-contacto">
-                    <label><input id="cb-whatsapp" name="cb-whatsapp" type="checkbox" value="WhatsApp">WhatsApp</label>
-                    <div id="whatsapp-nombre" class="medio-input" style="display:none;">
-                        <input type="text" id="whatsapp" name="whatsapp" minlength="4" maxlength="50" placeholder="Escriba su número de Whatsapp">
-                    </div>
+                <fieldset class="grupo-medios">
+                    <legend>Medio(s) de contacto:</legend>
+                    <div id="medio-contacto">
+                        <label><input id="cb-whatsapp" name="cb-whatsapp" type="checkbox" value="WhatsApp">WhatsApp</label>
+                        <div id="whatsapp-nombre" class="medio-input" style="display:none;">
+                            <input type="text" id="whatsapp" name="whatsapp" minlength="4" maxlength="50" placeholder="Escriba su número de Whatsapp">
+                        </div>
 
-                    <label><input id="cb-telegram" name="cb-telegram" type="checkbox" value="Telegram">Telegram</label>
-                    <div id="telegram-nombre" class="medio-input" style="display:none;">
-                        <input type="text" id="telegram" name="telegram" minlength="4" maxlength="50" placeholder="Escriba su nombre de usuario de Telegram">
-                    </div>
+                        <label><input id="cb-telegram" name="cb-telegram" type="checkbox" value="Telegram">Telegram</label>
+                        <div id="telegram-nombre" class="medio-input" style="display:none;">
+                            <input type="text" id="telegram" name="telegram" minlength="4" maxlength="50" placeholder="Escriba su nombre de usuario de Telegram">
+                        </div>
 
-                    <label><input id="cb-x" name="cb-x" type="checkbox" value="X">X</label>
-                    <div id="x-nombre" class="medio-input" style="display:none;">
-                        <input type="text" id="x" name="x" minlength="4" maxlength="50" placeholder="Escriba su nombre de usuario de X">
-                    </div>
+                        <label><input id="cb-x" name="cb-x" type="checkbox" value="X">X</label>
+                        <div id="x-nombre" class="medio-input" style="display:none;">
+                            <input type="text" id="x" name="x" minlength="4" maxlength="50" placeholder="Escriba su nombre de usuario de X">
+                        </div>
 
-                    <label><input id="cb-instagram" name="cb-instagram" type="checkbox" value="Instagram">Instagram</label>
-                    <div id="instagram-nombre" class="medio-input" style="display:none;">
-                        <input type="text" id="instagram" name="instagram" minlength="4" maxlength="50" placeholder="Escriba su nombre de usuario de Instagram">
-                    </div>
+                        <label><input id="cb-instagram" name="cb-instagram" type="checkbox" value="Instagram">Instagram</label>
+                        <div id="instagram-nombre" class="medio-input" style="display:none;">
+                            <input type="text" id="instagram" name="instagram" minlength="4" maxlength="50" placeholder="Escriba su nombre de usuario de Instagram">
+                        </div>
 
-                    <label><input id="cb-tiktok" name="cb-tiktok" type="checkbox" value="TikTok">TikTok</label>
-                    <div id="tiktok-nombre" class="medio-input" style="display:none;">
-                        <input type="text" id="tiktok" name="tiktok" minlength="4" maxlength="100" placeholder="Escriba su nombre de usuario de TikTok">
-                    </div>
+                        <label><input id="cb-tiktok" name="cb-tiktok" type="checkbox" value="TikTok">TikTok</label>
+                        <div id="tiktok-nombre" class="medio-input" style="display:none;">
+                            <input type="text" id="tiktok" name="tiktok" minlength="4" maxlength="100" placeholder="Escriba su nombre de usuario de TikTok">
+                        </div>
 
-                    <label><input id="cb-otro" name="cb-otro" type="checkbox" value="Otro">Otro</label>
-                    <div id="otro-nombre" class="medio-input" style="display:none;">
-                        <input type="text" id="otro" name="otro" minlength="4" maxlength="100" placeholder="Escriba el otro medio de contacto">
+                        <label><input id="cb-otro" name="cb-otro" type="checkbox" value="Otro">Otro</label>
+                        <div id="otro-nombre" class="medio-input" style="display:none;">
+                            <input type="text" id="otro" name="otro" minlength="4" maxlength="100" placeholder="Escriba el otro medio de contacto">
+                        </div>
                     </div>
-                </div>
+                </fieldset>
                 
                 <label for="select-tipo-mascota">Tipo de mascota:</label>
                 <select id="select-tipo-mascota" name="select-tipo-mascota" required>
@@ -120,10 +122,10 @@
                 <button type="button" id="btn-enviar">Enviar Aviso de Adopción</button>
             </form>
         </div>
-        <script src="../js/comunas.js"></script>
-        <script src="../js/contacto.js"></script>
-        <script src="../js/medios.js"></script>
-        <script src="../js/agregarFotos.js"></script>
-        <script src="../js/validaciones.js"></script>
+        <script src="{{ url_for('static', filename='js/comunas.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/contacto.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/medios.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/agregarFotos.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/validaciones.js') }}"></script>
     </body>
 </html>
