@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Estadísticas de Avisos de Adopción</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles_estadisticas.css') }}" />
+</head>
+<body>
+  <header class="header">
+    <h1>Estadísticas de Avisos de Adopción</h1>
+  </header>
+
+  <main class="grid">
+    <!-- Gráfico de líneas -->
+    <figure class="figura">
+      <div id="grafico-linea" style="width:100%; height:400px;"></div>
+    </figure>
+
+    <!-- Gráfico de torta -->
+    <figure class="figura">
+      <div id="grafico-torta" style="width:100%; height:400px;"></div>
+    </figure>
+
+    <!-- Gráfico de barras -->
+    <figure class="figura">
+      <div id="grafico-barras" style="width:100%; height:400px;"></div>
+    </figure>
+  </main>
+
+  <!-- Botón para volver al inicio -->
+  <footer class="footer">
+    <a class="back-link" href="/">Volver a la página de inicio</a>
+  </footer>
+
+  <!-- Scripts de Highcharts y el archivo JS de estadísticas-->
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <script src="{{ url_for('static', filename='js/estadisticas.js') }}"></script>
+</body>
+</html>
+
