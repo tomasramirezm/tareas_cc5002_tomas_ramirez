@@ -1,0 +1,135 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+/* Estilo para el mensaje de bienvenida */
+#bienvenida {
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    width: 80%;
+    max-width: 800px;
+}
+
+#bienvenida h1 {
+    font-size: 24px;
+    font-weight: 500;
+}
+
+/* Contenedor principal para los botones */
+div {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+/* Estilos de los botones */
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+/* Efecto hover para los botones */
+button:hover {
+    background-color: #45a049;
+}
+
+/* Estilos para la tabla */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+/* Encabezados de la tabla */
+th {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 15px;
+    text-align: center;
+    font-size: 16px;
+}
+
+/* Filas de la tabla */
+td {
+    padding: 12px 15px;
+    text-align: center;
+    background-color: #ffffff;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Fila de la tabla al pasar el ratón por encima */
+tr:hover {
+    background-color: #f5f5f5;
+}
+
+/* Estilos para las imágenes dentro de la tabla */
+td img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    border-radius: 5px;
+}
+
+/* LO QUE ESTÁ ACÁ ABAJO LO HIZO CHATGPT, NO ESTABA SEGURO CÓMO HACER QUE SE VIERA MEJOR EN PANTALLAS PEQUEÑAS */
+
+/* Mejoras para pantallas pequeñas (responsividad) */
+@media (max-width: 768px) {
+    /* Aseguramos que los botones se apilen en lugar de estar en línea */
+    div {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Hacemos que la tabla ocupe todo el ancho posible */
+    table {
+        font-size: 14px;
+    }
+
+    /* Reducimos el tamaño de las imágenes en pantallas más pequeñas */
+    td img {
+        max-width: 150px;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Reducimos aún más el tamaño de las imágenes */
+    td img {
+        max-width: 120px;
+    }
+
+    /* Aseguramos que los botones sean más grandes en pantallas pequeñas */
+    button {
+        width: 100%;
+        padding: 12px;
+        font-size: 18px;
+    }
+
+    /* Ajustamos la tabla para que sea completamente legible */
+    table {
+        font-size: 12px;
+    }
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Listado de Avisos de Adopción</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/styles_listado.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/styles_comentarios.css') }}">
+    </head>
+    <body>
+        <table id="tabla-adopciones">
+            <thead>
+                <tr>
+                    <th>Fecha de Publicación</th>
+                    <th>Fecha de Entrega</th>
+                    <th>Comuna</th>
+                    <th>Sector</th>
+                    <th>Cantidad, Tipo y Edad</th>
+                    <th>Nombre Contacto</th>
+                    <th>Total de Fotos</th>
+                </tr>
+            </thead>
+            <tbody>
+               <!-- Aquí se llenará dinámicamente con JavaScript -->
+            </tbody>
+        </table>
+
+        <!-- Controles de paginación -->
+        <div class="pager" style="margin-top: 14px; display: flex; gap: 8px; align-items: center;">
+            <button id="btn-prev">Anterior</button>
+            <span id="page-info">Página 1 de 1</span>
+            <button id="btn-next">Siguiente</button>
+        </div>
+
+        <!-- Modal de detalle (dinámico) -->
+        <div id="detalle-modal" class="modal-adoption" style="display:none;">
+            <div class="modal-content">
+                <h2>Detalles del Aviso de Adopción</h2>
+                <br />
+                <div id="detalle-body">
+                <!-- Se rellena por JS -->
+                </div>
+                <button id="detalle-close" class="close-btn">Cerrar</button>
+            </div>
+            </div>
+
+            <div class="back-container" style="margin-top:16px">
+            <a class="back-link" href="/">Volver a la página de inicio</a>
+        </div>
+
+        <script src="{{ url_for('static', filename='js/listado.js') }}"></script>
+    </body>
+</html>
