@@ -1,0 +1,5 @@
+cl\uc\cc5002\tarea4\notas\NotasApplication.class
+cl\uc\cc5002\tarea4\notas\repository\NotaRepository.class
+cl\uc\cc5002\tarea4\notas\model\Nota.class
+cl\uc\cc5002\tarea4\notas\controller\NotaController.class
+cl\uc\cc5002\tarea4\notas\controller\NotaController$NuevaNotaRequest.class

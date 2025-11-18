@@ -1,0 +1,126 @@
+/* === Sección de comentarios (container) === */
+.comentarios-section {
+  margin-top: 20px;
+  border-top: 1px solid #e5e7eb;
+  padding-top: 16px;
+}
+
+/* Título */
+.comentarios-section h3 {
+  margin: 0 0 12px 0;
+  font-size: 18px;
+  color: #333;
+}
+
+/* Lista de comentarios */
+.comentarios-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Tarjeta individual de cada comentario */
+.comentario-card {
+  background: #f7f9fc;
+  border: 1px solid #e6ebf2;
+  border-radius: 12px;
+  padding: 12px 14px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+}
+
+/* Header del comentario (autor y fecha) */
+.comentario-header {
+  display: flex;
+  gap: 8px;
+  align-items: baseline;
+  margin-bottom: 6px;
+}
+.comentario-autor {
+  font-weight: 600;
+  color: #333;
+}
+.comentario-fecha {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+/* Texto del comentario */
+.comentario-texto {
+  margin: 0;
+  color: #2d3748;
+  line-height: 1.45;
+  white-space: pre-wrap;
+}
+
+/* Formulario de nuevo comentario */
+.comentario-form {
+  display: grid;
+  gap: 10px;
+  margin-top: 14px;
+}
+.comentario-form label {
+  font-weight: bold;
+  color: #333;
+}
+.comentario-form input[type="text"],
+.comentario-form textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #cfd6df;
+  border-radius: 8px;
+  font-size: 14px;
+  box-sizing: border-box;
+  background-color: #fff;
+  color: #333;
+}
+.comentario-form textarea {
+  resize: vertical;
+  min-height: 88px; /* Esto son aproximadamente 4 filas */
+}
+
+/* Botón para enviar */
+.comentario-form button {
+  width: fit-content;
+  padding: 8px 12px;
+  background-color: #28a745;
+  color: #fff;
+  border: 0;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+}
+.comentario-form button:hover {
+  background-color: #218838;
+}
+
+/* Mensaje de error del formulario */
+.comentario-error {
+  margin-left: 8px;
+  font-size: 13px;
+  color: #c00;
+}
+
+/* Ajustes específicos para el ancho de los campos del formulario */
+/* Hacemos más chico el campo del nombre */
+.comentario-form #comentario-nombre {
+  width: 12%;
+  min-width: 220px;
+}
+
+/* Hacemos un poco más ancho el campo del comentario */
+.comentario-form #comentario-texto {
+  width: 50%;
+  min-width: 280px;   /* un poco más ancho que el nombre */
+}
+
+/* En celus, que ambos vuelvan al 100% para no cortar */
+@media (max-width: 640px) {
+  .comentario-form #comentario-nombre,
+  .comentario-form #comentario-texto {
+    width: 100%;
+    min-width: 0;
+  }
+}
