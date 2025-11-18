@@ -1,0 +1,346 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+/* Contenedor principal para los botones */
+.pager, .top-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+/* Estilos de los botones */
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+/* Fila completa al pasar el mouse por encima */
+tr:hover {
+    background-color: #f5f5f5;
+    cursor: pointer;
+}
+
+/* Estilos para la tabla */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+/* Encabezados de la tabla */
+th {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 15px;
+    text-align: center;
+    font-size: 16px;
+}
+
+/* Filas de la tabla (unificado, eliminando duplicados) */
+td {
+    padding: 12px 15px;
+    text-align: center;
+    background-color: #ffffff;
+    border-bottom: 1px solid #ddd;
+    transition: background-color 0.3s;
+}
+
+/* Estilos para las imágenes dentro de la tabla */
+td img {
+    width: 320px;
+    height: 240px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+/* Estilo para los modales de adopción (inicialmente ocultos) */
+.modal-adoption {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    inset: 0; /* equivale a top/left/right/bottom: 0 */
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* Estilo para las imagenes del modal de adopción */
+#image-2gatos, #image-gato-fran, #image-dominga, #image-consu, #image-gato-francia {
+    width: 320px;
+    height: 240px;
+    margin-top: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Contenido del modal */
+.modal-content {
+    background-color: white;
+    padding: 16px 20px 20px;
+    border-radius: 10px;
+    width: 90%;
+    text-align: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    max-height: 80vh;
+    overflow-y: auto; 
+}
+
+/* Título del modal: sin márgenes que empujen hacia abajo */
+.modal-content h2 {
+    font-size: 24px;
+    color: #4CAF50;
+    margin: 0 0 12px;
+}
+
+/* Estilo para los detalles dentro del modal */
+.modal-content p {
+    font-size: 18px;
+}
+
+/* Estilo para el encabezado de cada sección */
+.modal-content strong {
+    font-size: 18px;
+    color: #4CAF50;
+    display: inline-block;
+    width: 150px;
+    margin-bottom: 5px;
+}
+
+/* Estilo para las filas de cada dato */
+.modal-content p span {
+    font-size: 18px;
+    color: #333;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+/* Estilo para las imágenes dentro del modal */
+#detalle-body img {
+    margin-top: 10px; /* importante: sin width/height aquí para no chocar con #modal-img */
+}
+
+/* Estilo para el botón de cerrar */
+.close-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.close-btn:hover {
+    background-color: #45a049;
+}
+
+/* Estilo para el modal de la imagen */
+#modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#modal-img {
+    width: 100%;
+    height: auto;
+    max-width: 800px;
+    max-height: 600px;
+    display: block;
+    margin: auto;
+}
+
+/* Estructura del detalle: info arriba, fotos debajo */
+#detalle-body {
+  display: block;
+  margin-bottom: 8px;
+}
+
+/* NUEVO: Info del detalle en columnas arriba (fluido y responsive) */
+#detalle-body .detalle-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+  text-align: left;
+  align-items: start;
+}
+
+/* NUEVO: Fila de fotos dentro del modal (debajo de la info) */
+#detalle-body .fotos-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  margin-top: 8px;
+}
+
+.foto-detalle {
+  width: 320px;     /* fijo 320×240 como pediste */
+  height: 240px;
+  object-fit: cover;
+  border-radius: 5px;
+  display: block;
+  cursor: pointer;  /* manito */
+}
+
+/*Contenedor del modal de imagen (contenido centrado y con gap) */
+#modal-content {
+    background-color: white;
+    padding: 16px 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 800px;
+    text-align: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* Cursor para imagenes clickeables */
+#modal-img {
+    cursor: pointer;
+}
+
+/* Mostrar el modal cuando tenga la clase "open" */
+#modal.open{
+    display: flex;
+}
+
+/* Contenedor botón volver */
+.back-container {
+  margin-top: 20px;
+  text-align: center;
+}
+.back-link {
+  background-color: #4CAF50;
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  display: inline-block;
+  transition: background-color .2s ease;
+}
+
+/* Columna de nota (promedio) */
+.col-nota {
+  font-weight: bold;
+}
+
+/* Modal de nota*/
+#nota-modal .modal-content {
+  max-width: 360px;
+  align-items: stretch;
+}
+
+#nota-input {
+  width: 100%;
+  padding: 8px;
+  margin: 10px 0;
+  border: 1px solid #cfd6df;
+  border-radius: 6px;
+  font-size: 16px;
+  text-align: center;
+}
+
+.nota-modal-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin-top: 8px;
+}
+
+.nota-modal-actions .close-btn {
+  min-width: 110px;
+}
+
+
+.back-link:hover { background-color: #45a049; }
+
+/* LO QUE ESTÁ ACÁ ABAJO LO HIZO CHATGPT, NO ESTABA SEGURO CÓMO HACER QUE SE VIERA MEJOR EN PANTALLAS PEQUEÑAS */
+
+/* Mejoras para pantallas pequeñas (responsividad) */
+@media (max-width: 768px) {
+    /* Aseguramos que los botones se apilen en lugar de estar en línea */
+    .pager, .top-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Hacemos que la tabla ocupe todo el ancho posible */
+    table {
+        font-size: 14px;
+    }
+
+    /* Reducimos el tamaño de las imágenes en pantallas más pequeñas */
+    td img {
+        max-width: 150px;
+        width: 100%;
+        height: auto;
+    }
+
+    .modal-content {
+        width: 95%;
+        padding-top: 14px; /* mantiene coherencia del espacio superior */
+    }
+}
+
+@media (max-width: 480px) {
+    /* Reducimos aún más el tamaño de las imágenes */
+    td img {
+        max-width: 120px;
+        width: 100%;
+        height: auto;
+    }
+
+    /* Aseguramos que los botones sean más grandes en pantallas pequeñas */
+    button {
+        width: 100%;
+        padding: 12px;
+        font-size: 18px;
+    }
+
+    /* Ajustamos la tabla para que sea completamente legible */
+    table {
+        font-size: 12px;
+    }
+
+    .modal-content {
+        width: 96%;
+        padding-top: 12px; /* mantiene coherencia del espacio superior */
+    }
+}

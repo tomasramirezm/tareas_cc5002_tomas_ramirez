@@ -1,0 +1,179 @@
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    background-color: #f4f4f4;
+    height: 100%;
+}
+
+.main-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    max-width: 440px;
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+input[type="email"],
+input[type="nombre"],
+input[type="text"],
+input[type="file"],
+input[type="tel"],
+input[type="number"],
+input[type="datetime-local"],
+select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    box-sizing: border-box;
+    background-color: #fff;
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 10px;
+    color: #333;
+}
+
+select {
+    cursor: pointer;
+    appearance: none;
+    padding-right: 30px;
+}
+
+input[type="file"] {
+    padding: 5px 8px;
+}
+
+button#btn-enviar {
+    margin-top: 40px;
+    width: 100%;
+    padding: 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button#btn-enviar:hover {
+    background-color: #218838;
+}
+
+#val-box {
+    background-color: #ffdddd;
+    border-left: 6px solid #f44336;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+#val-box h2 {
+    margin: 0 0 10px 0;
+    font-size: 18px;
+}
+
+#val-list {
+    padding-left: 20px;
+    margin: 0;
+    list-style-type: disc;
+    color: #a94442;
+}
+
+#medio-contacto {
+    display: flex;
+    flex-direction: column;
+}
+
+#medio-contacto label {
+    display: flex;
+    align-items: center;
+    display: inline-block;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+#medio-contacto input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 0px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    box-sizing: border-box;
+    background-color: #fff;
+    color: #333;
+}
+
+#medio-contacto input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+#medio-contacto div {
+    margin-bottom: 15px;
+}
+
+#medio-contacto div input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    background-color: #fff;
+    color: #333;
+}
+
+#foto-container {
+    margin-bottom: 10px;
+}
+
+.foto-input {
+    margin-bottom: 10px;
+    display: block;
+}
+
+#btn-agregar-foto {
+    padding: 5px 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#btn-agregar-foto:hover {
+    background-color: #218838;
+}
+
+#mensaje-error {
+    margin-top: 10px;
+}
+
+@media (max-width: 480px) {
+    .main-container {
+        padding: 15px;
+    }
+    
+    button#submit-btn {
+        padding: 8px;
+        font-size: 14px;
+    }
+}
